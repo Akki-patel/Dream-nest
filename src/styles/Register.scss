@@ -69,10 +69,10 @@
       }
 
       button {
-        margin-top: 15px;
+        margin-top: 0px;
 
         @include buttonStyle;
-        width: 50%;
+        width: -1%;
 
         &:hover {
           box-shadow: 0 0 10px 3px rgba(255, 255, 255);

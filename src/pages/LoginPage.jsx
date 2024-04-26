@@ -3,10 +3,13 @@ import "../styles/Login.scss"
 import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { IconButton } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch()
 
@@ -16,7 +19,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch ("http://localhost:3001/auth/login", {
+      const response = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -28,7 +31,7 @@ const LoginPage = () => {
       const loggedIn = await response.json()
 
       if (loggedIn) {
-        dispatch (
+        dispatch(
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token
@@ -54,17 +57,31 @@ const LoginPage = () => {
             required
           />
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">LOG IN</button>
-        </form>
-        <a href="/register">Don't have an account? Sign In Here</a>
-      </div>
+          <IconButton
+            onClick={() => setShowPassword(!showPassword)}
+            sx={{
+              position: 'relative',
+              width: '40px',
+              height: '30px',
+              right: '-100px',
+              top: '-36px',
+              transform: 'translateY(-50%)',
+              backgroundColor: 'transparent'
+            }}
+          >
+            {showPassword ? <VisibilityOff /> : <Visibility />}
+          </IconButton>
+        <button type="submit">LOG IN</button>
+      </form>
+      <a href="/register">Don't have an account? Sign In Here</a>
     </div>
+  </div >
   );
 };
 

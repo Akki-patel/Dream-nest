@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
+import { IconButton } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import "../styles/Register.scss";
 
 const RegisterPage = () => {
@@ -52,6 +54,8 @@ const RegisterPage = () => {
     }
   }
 
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="register">
       <div className="register_content">
@@ -79,19 +83,19 @@ const RegisterPage = () => {
             required
           />
           <input
+            type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             name="password"
             value={formData.password}
             onChange={handleChange}
-            type="password"
             required
           />
           <input
+            type={showPassword ? 'text' : 'password'}
             placeholder="Confirm Password"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
-            type="password"
             required
           />
 
@@ -120,6 +124,20 @@ const RegisterPage = () => {
               style={{ maxWidth: "80px" }}
             />
           )}
+        <IconButton
+            onClick={() => setShowPassword(!showPassword)}
+            sx={{
+              position: 'relative',
+              width: '40px',
+              height: '30px',
+              right: '-100px',
+              top: '-145px',
+              transform: 'translateY(-50%)',
+              backgroundColor: 'transparent',
+            }}
+          >
+            {showPassword ? <VisibilityOff /> : <Visibility />}
+          </IconButton>
           <button type="submit" disabled={!passwordMatch}>REGISTER</button>
         </form>
         <a href="/login">Already have an account? Log In Here</a>
