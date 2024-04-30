@@ -79,7 +79,7 @@ const LoginPage = () => {
           </IconButton>
         <button type="submit">LOG IN</button>
       </form>
-      <a href="/register">Don't have an account? Sign In Here</a>
+      <a href="/register">Don't have an account? Sign Up Here</a>
     </div>
   </div >
   );
