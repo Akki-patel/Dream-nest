@@ -10,6 +10,8 @@ import { IoIosImages } from 'react-icons/io';
 import { BiTrash } from "react-icons/bi";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Footer from "../component/Footer"
+
 
 
 const CreateListing = () => {
@@ -248,6 +250,8 @@ const CreateListing = () => {
                     <div className='create-listing_step2'>
                         <h2>Step 2: Make your place stand out</h2>
                         <hr />
+
+                        
                         <h3>Tell guests what your place has to offer</h3>
                         <div className='amenities'>
                             {facilities?.map((item, index) => (
@@ -360,6 +364,7 @@ const CreateListing = () => {
                     <button className="submit_btn" type='submit'>CREATE YOUR LISTING</button>
                 </form>
             </div>
+            <Footer />
         </>
     )
 }

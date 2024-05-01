@@ -2,6 +2,7 @@ import Categories from '../component/Categories';
 import Navbar from '../component/Navbar';
 import Slide from "../component/Slide";
 import Listings from '../component/Listings';
+import Footer from '../component/Footer';
 const HomePage = () => {
   return (
     <>
@@ -9,6 +10,7 @@ const HomePage = () => {
       <Slide />
       <Categories />
       <Listings />
+      <Footer />
     </>
   )
 }
