@@ -1,10 +1,11 @@
 import "../styles/Footer.scss"
 import { LocationOn, LocalPhone, Email } from "@mui/icons-material"
+import {Link} from "react-router-dom"
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer_left">
-        <a href="/"><img src="/assets/logo.png" alt="logo" /></a>
+        <Link to="/"><img src="/assets/logo.png" alt="logo" /></Link>
       </div>
 
       <div className="footer_center">

@@ -112,6 +112,18 @@
           background-color: rgba(217, 213, 213, 0.2);
         }
       }
+      Link{
+        width: 100%;
+        padding: 8px 15px;
+        text-decoration: none;
+        color: $blue;
+        font-weight: 700;
+
+        &:hover {
+          color: $pinkred;
+          background-color: rgba(217, 213, 213, 0.2);
+        }
+      }
     }
   }
 }

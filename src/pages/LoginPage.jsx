@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Login.scss"
 import { setLogin } from "../redux/state";
 import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useNavigate,Link } from "react-router-dom"
 import { IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
@@ -19,7 +19,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch("http://localhost:3001/auth/login", {
+      const response = await fetch("https://dreamnest-be.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -63,7 +63,7 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <IconButton
+          {/* <IconButton
             onClick={() => setShowPassword(!showPassword)}
             sx={{
               position: 'relative',
@@ -76,10 +76,10 @@ const LoginPage = () => {
             }}
           >
             {showPassword ? <VisibilityOff /> : <Visibility />}
-          </IconButton>
+          </IconButton> */}
         <button type="submit">LOG IN</button>
       </form>
-      <a href="/register">Don't have an account? Sign Up Here</a>
+      <Link to="/register">Don't have an account? Sign Up Here</Link>
     </div>
   </div >
   );

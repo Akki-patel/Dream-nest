@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 import { IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import "../styles/Register.scss";
@@ -41,7 +41,7 @@ const RegisterPage = () => {
         register_form.append(key, formData[key])
       }
 
-      const response = await fetch("http://localhost:3001/auth/register", {
+      const response = await fetch("https://dreamnest-be.onrender.com/auth/register", {
         method: "POST",
         body: register_form
       })
@@ -124,7 +124,7 @@ const RegisterPage = () => {
               style={{ maxWidth: "80px" }}
             />
           )}
-        <IconButton
+        {/* <IconButton
             onClick={() => setShowPassword(!showPassword)}
             sx={{
               position: 'relative',
@@ -137,10 +137,10 @@ const RegisterPage = () => {
             }}
           >
             {showPassword ? <VisibilityOff /> : <Visibility />}
-          </IconButton>
+          </IconButton> */}
           <button type="submit" disabled={!passwordMatch}>REGISTER</button>
         </form>
-        <a href="/login">Already have an account? Log In Here</a>
+        <Link to="/login">Already have an account? Log In Here</Link>
       </div>
     </div>
   );

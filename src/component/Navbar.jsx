@@ -21,9 +21,9 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <a href="/">
+      <Link to="/">
         <img src="/assets/logo.png" alt="logo" />
-      </a>
+      </Link>
 
       <div className="navbar_search">
         <input
@@ -42,13 +42,9 @@ const Navbar = () => {
 
       <div className="navbar_right">
         {user ? (
-          <a href="/create-listing" className="host">
-            Become A Host
-          </a>
+            <Link to="/create-listing">Become A Host</Link>
         ) : (
-          <a href="/login" className="host">
-            Become A Host
-          </a>
+          <Link to="/login">Become A Host</Link>
         )}
 
         <button
@@ -60,7 +56,7 @@ const Navbar = () => {
             <Person sx={{ color: variables.darkgrey }} />
           ) : (
             <img
-              src={`http://localhost:3001/${user.profileImagePath.replace(
+              src={`https://dreamnest-be.onrender.com/${user.profileImagePath.replace(
                 "public",
                 ""
               )}`}
